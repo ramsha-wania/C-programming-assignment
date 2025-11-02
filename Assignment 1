@@ -1,0 +1,212 @@
+ //Ques1.What do you mean by arrays give one example of array and how you can declared an array?
+ //Ans1.An array is a collection of elements stored together under one name.
+
+#include <stdio.h>
+int main() {
+    int numbers[5] = {10, 20, 30, 40, 50};  // Declare and initialize an array
+    int i;
+    printf("Elements of the array are:\n");
+    for(i = 0; i < 5; i++) {
+        printf("%d\n", numbers[i]);
+    }
+    return 0;   
+}
+//Output: Elements of the array are:
+10
+20
+30
+40
+50
+
+//Ques2.What do you mean by functions? Write the types of functions and give one example in code of each type.
+//Ans2.A function is a block of code that performs a specific task.Instead of writing the same code again and again, we write it once in a function and call it whenever needed. 
+There are four main types of functions based on arguments and return value:
+//1. Function with no arguments and no return value
+#include <stdio.h>
+void greet() {
+    printf("Hello Ramsha!\n");
+}
+int main() {
+    greet();
+return 0;
+}
+//Output: Hello Ramsha!
+//2. Function with arguments but no return value
+#include <stdio.h>
+void add(int a, int b) {
+    printf("Sum = %d\n", a + b);
+}
+int main() {
+    add(5, 10); 
+    return 0;
+}
+//Output:Sum = 15
+//3. Function with no arguments but with return value
+#include <stdio.h>
+int giveNumber() {
+    return 25;
+}
+int main() {
+    int num = giveNumber();
+    printf("Number is %d\n", num);
+    return 0;
+}
+//Output:Number is 25
+//4. Function with arguments and return value
+#include <stdio.h>
+int multiply(int x, int y) {
+    return x * y;
+}
+int main() {
+    int result = multiply(4, 5);
+    printf("Product = %d\n", result);
+    return 0;
+}
+//Output:Product = 20
+
+//Ques3.What do you mean by Pointers ? Write a code how you can initialise the pointer.
+//Ans3.A pointer is a special variable that stores the memory address of another variable.
+#include <stdio.h>
+int main() {
+    int a = 10;     
+    int *p;         // Pointer variable declaration
+    p = &a;         // Initialize pointer with the address of 'a'
+
+    printf("Value of a = %d\n", a);
+    printf("Address of a = %p\n", &a);
+    printf("Pointer p stores address = %p\n", p);
+    printf("Value pointed by p = %d\n", *p); // *p gives value of 'a'
+    return 0;
+}
+//Output: Value of a = 10
+Address of a = 0x7ffff42158d4
+Pointer p stores address = 0x7ffff42158d4
+Value pointed by p = 10
+
+//Ques4.What are the types of array? Write in a code 1D & 2D included.
+//Ans4.There are mainly two types of arrays:
+//1. One-Dimensional Array (1D Array)
+#include <stdio.h>
+int main() {
+    int marks[5] = {85, 90, 78, 88, 92};  // 1D array declaration
+    int i;
+    printf("Marks of students:\n");
+    for(i = 0; i < 5; i++) {
+        printf("%d\n", marks[i]);
+    }
+    return 0;
+}
+//Output:Marks of students:
+85
+90
+78
+88
+92
+//2. Two-Dimensional Array (2D Array)
+#include <stdio.h>
+int main() {
+    int matrix[2][3] = { {1, 2, 3}, {4, 5, 6} };  // 2D array declaration
+    int i, j;
+    printf("2D Array (Matrix):\n");
+    for(i = 0; i < 2; i++) {
+        for(j = 0; j < 3; j++) {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+//Output:2D Array (Matrix):
+1 2 3 
+4 5 6
+
+//Ques5.Explain the types of Operators in code.
+//Ans5.An operator is a symbol that tells the compiler to perform a specific operation on one or more operands (values or variables).
+C language provides several types of operators:
+//1. Arithmetic Operators: [+, -, *, /, %]
+#include <stdio.h>
+int main() {
+    int a = 10, b = 3;
+    printf("Addition: %d\n", a + b);
+    printf("Subtraction: %d\n", a - b);
+    printf("Multiplication: %d\n", a * b);
+    printf("Division: %d\n", a / b);
+    printf("Modulus: %d\n", a % b);
+    return 0;
+}
+//Output:Addition: 13
+Subtraction: 7
+Multiplication: 30
+Division: 3
+Modulus: 1
+//2. Relational Operators: [==, !=, >, <, >=, <=]
+#include <stdio.h>
+int main() {
+    int a = 5, b = 8;
+    printf("%d\n", a > b);   // 0 (false)
+    printf("%d\n", a < b);   // 1 (true)
+    printf("%d\n", a == b);  // 0 (false)
+    return 0;
+}
+//Output:0
+1
+0
+//3. Logical Operators: [&&, ||, !]
+#include <stdio.h>
+int main() {
+    int a = 5, b = 10;
+    printf("%d\n", (a < b && b > 0));  // 1 (true)
+    printf("%d\n", (a > b || b > 0));  // 1 (true)
+    printf("%d\n", !(a == b));         // 1 (true)
+    return 0;
+}
+//Output:1
+1
+1
+//4. Assignment Operators: [=, +=, -=, *=, /=]
+#include <stdio.h>
+int main() {
+    int a = 10;
+    a += 5;
+    printf("Value of a: %d\n", a);  // 15
+    return 0;
+}
+//Output:Value of a: 15
+//5. Increment and Decrement Operators: [++, --]
+#include <stdio.h>
+int main() {
+    int a = 5;
+    printf("a++ = %d\n", a++); // Post-increment
+    printf("Now a = %d\n", a);
+    printf("++a = %d\n", ++a); // Pre-increment
+    return 0;
+}
+//Output:a++ = 5
+Now a = 6
+++a = 7
+//6. Conditional (Ternary) Operator: [(condition) ? expression1 : expression2;]
+#include <stdio.h>
+int main() {
+    int a = 10, b = 20;
+    int max = (a > b) ? a : b;
+    printf("Greater number is: %d\n", max);
+    return 0;
+}
+//Output:Greater number is: 20
+//7. Bitwise Operators: [&, ^, ~, |, <<, >>]
+#include <stdio.h>
+int main() {
+    int a = 5, b = 3;
+    printf("a & b = %d\n", a & b);
+    printf("a | b = %d\n", a | b);
+    printf("a ^ b = %d\n", a ^ b);
+    return 0;
+}
+//Output:a & b = 1
+a | b = 7
+a ^ b = 6
+
+
+
+
+
