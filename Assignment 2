@@ -1,0 +1,146 @@
+// Q1. What do you mean by Structures?
+/*
+Definition:
+A structure in C is a user-defined data type that allows
+combining variables of different data types under one name.
+It is used to represent a record (like student details).
+*/
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    struct student {
+        int roll;
+        char name[30];
+        float marks;
+    };
+
+    struct student s1 = {1, "Zarmeena", 96.8};
+
+    printf("Roll: %d\n", s1.roll);
+    printf("Name: %s\n", s1.name);
+    printf("Marks: %.2f\n", s1.marks);
+
+    return 0;
+}
+
+/*
+Output:
+Roll: 1
+Name: Zarmeena
+Marks:96.8
+*/
+// Q2. What do you mean by Array and Array of Pointers?
+/*
+Definition:
+1. Array:
+   An array is a collection of elements of the same data type
+   stored in continuous memory locations. It allows storing multiple
+   values under a single name.
+
+2. Array of Pointers:
+   An array of pointers is an array in which each element is a pointer
+   variable that can store the address of another variable.
+*/
+
+#include <stdio.h>
+
+int main() {
+    // Example of Normal Array
+    int numbers[3] = {10, 20, 30};
+
+    printf("Elements of Normal Array:\n");
+    for (int i = 0; i < 3; i++) {
+        printf("%d ", numbers[i]);
+    }
+
+    printf("\n\n");
+
+    // Example of Array of Pointers
+    int a = 100, b = 200, c = 300;
+    int *ptr[3];   // Array of integer pointers
+
+    ptr[0] = &a;
+    ptr[1] = &b;
+    ptr[2] = &c;
+
+    printf("Elements using Array of Pointers:\n");
+    for (int i = 0; i < 3; i++) {
+        printf("%d ", *ptr[i]);  // accessing values using dereferencing
+    }
+
+    return 0;
+}
+
+/*
+Output:
+Elements of Normal Array:
+10 20 30
+
+Elements using Array of Pointers:
+100 200 300
+*/
+
+// Q3. Compare two structure variables by using == and !=
+/*
+Definition:
+In C, two structure variables cannot be compared directly using
+(== or !=) operators. We must compare each member individually.
+*/
+
+#include <stdio.h>
+
+int main() {
+    struct point {
+        int x;
+        int y;
+    };
+
+    struct point p1 = {10, 20};
+    struct point p2 = {10, 25};
+
+    if (p1.x == p2.x && p1.y == p2.y)
+        printf("Structures are Equal\n");
+    else
+        printf("Structures are Not Equal\n");
+
+    return 0;
+}
+
+/*
+Output:
+Structures are Not Equal
+*/
+// Q4. Perform arithmetic operations on structures
+/*
+Definition:
+Arithmetic operations cannot be performed directly on entire
+structures, but they can be done on individual structure members.
+*/
+
+#include <stdio.h>
+
+int main() {
+    struct numbers {
+        int a;
+        int b;
+    };
+
+    struct numbers n1 = {20, 10};
+    struct numbers result;
+
+    result.a = n1.a + n1.b;  // addition
+    result.b = n1.a - n1.b;  // subtraction
+
+    printf("Addition of members: %d\n", result.a);
+    printf("Subtraction of members: %d\n", result.b);
+
+    return 0;
+}
+
+/*
+Output:
+Addition of members: 30
+Subtraction of members: 10
+*/
